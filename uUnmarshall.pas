@@ -1,5 +1,7 @@
 unit uUnmarshall;
 {
+  **Ronald Rodrigues Farias**
+  
   Observação: todo TJSONArray será tratado como um TObjectList<>
   Certifique-se de instanciar todas as variáveis antes de passa-las para a função.
   Faça o TypeCast de retorno nas chamadas;
@@ -29,16 +31,16 @@ implementation
 class function TRttiunmarshall.JsonParaObjeto(aOBJETO : TOBject ; aJSON : TJSONValue): TObject;
 var
   rtContexto       : TrttiContext;          // variavel principal de rtti, deve ser iniciada antes de todas as outras
-  rtProperty       : TRttiProperty;         // property do atributo a ser preenchido do objeto passado como argumento
+  rtProperty       : TRttiProperty;         // property do atributo a ser preenchido do objeto a ser desserializado passado como argumento
   rtMetodo         : TRttiMethod;           // metodo add do TObjectList<> a ser usado em contexto
-  rtTipoVarInObjeto: TTypeKind;             // usada no "case of" dentro do "if then" JSONObject, Tipo da Var preencida
+  rtTipoVarInObjeto: TTypeKind;             // Tipo da Var json a ser assignada ao objeto
   arraysFields     : TArray<TRttiProperty>; // array com o nome das propertys do objeto, coletada no inicio da chamada
-  cont, i          : integer;               // variaveis contadoras para os laços for
-  strClasse        : string;                // extrai o nome em texto da classe tipada no TObjectList<>
+  cont, i          : integer;               // variaveis contadoras
+  strClasse        : string;                // extrai o nome em texto da classe tipada no caso de TObjectList<>
   oJson            : TJSONObject;           // simples conversão para evitar uso de cast do argumento aJSON (caso seja)
   arrayJson        : TJSONArray;            // simples conversão para evitar uso de cast do argumento aJSON (caso seja)
   oList, oRecurr   : TObject;               // variaveis auxiliares usadas quando há listas dentro de objetos ou listas diretas
-  oClass           : TClass;                // classe do objeto a ser preenchido, usado para typecast ao adicionar nas listas
+  oClass           : TClass;                // classe do objeto a ser preenchido, usado para instâncias e typecast ao add em lista 
 begin
 
      rtContexto := TRttiContext.Create;
