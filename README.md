@@ -1,6 +1,7 @@
 # Rtti-unmarshall-manual
 A beta Rtti Json Unmarshall
-All Arrays in JSON is transformed in a TObjectList<*T*> Var. With all your special features!
+
+* All Arrays into the JSON is transformed in a TObjectList<*T*> Var. With all your special features!
 ## Requisitos para funcionamento ##
 
 * O nome de todas as properties do objeto a ser preenchido pelo argumento json devem ser idênticas aos campos 'chave' do mesmo.
