@@ -1,5 +1,5 @@
 # Rtti-unmarshall-manual
-A beta rtti unmarshall
+A beta Rtti Json Unmarshall
 
 ## Requisitos para funcionamento ##
 
@@ -8,3 +8,7 @@ A beta rtti unmarshall
 * Todo objeto a ser passado como argumento deve ser devidamente instanciado ( ser diferente de nil).
 
 * Você continua responsável por dar Free em seus objetos.
+
+***TLoja** oJoalheria := TRttiunmarshall.JsonParaObjeto(oJoalheria, oJson) as **TLoja;***
+  
+*TObjectList<**TLoja**> oShopping := TRttiunmarshall.JsonParaObjeto(oShopping, oJson) as TObjectList<**TLoja**>;*
